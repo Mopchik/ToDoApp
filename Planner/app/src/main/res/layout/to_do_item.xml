@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                         android:layout_height="wrap_content"
+                                         android:layout_width="match_parent"
+                                        android:layout_marginBottom="10dp"
+                                            android:clickable="true"
+                             android:focusable="true"
+                                        android:id="@+id/layout_item">
+
+    <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" tools:layout_editor_absoluteY="32dp"
+            tools:layout_editor_absoluteX="16dp" android:id="@+id/toDoItem_checkBox"
+            android:textColorLink="@color/colorPrimary"/>
+    <TextView
+            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:id="@+id/toDoItem_text"
+            android:maxLines="3"
+            android:ellipsize="end"
+            android:paddingBottom="5dp"/>
+
+</android.widget.LinearLayout>

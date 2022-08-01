@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Planner</string>
+    <string name="action_settings">Settings</string>
+    <string-array name="importance">
+        <item>Нет</item>
+        <item>Низкий</item>
+        <item>Высокий</item>
+    </string-array>
+</resources>
