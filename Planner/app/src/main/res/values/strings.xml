@@ -3,7 +3,7 @@
     <string name="action_settings">Settings</string>
     <string-array name="importance">
         <item>Нет</item>
-        <item>Низкий</item>
-        <item>Высокий</item>
+        <item>Низкая</item>
+        <item>Высокая</item>
     </string-array>
 </resources>

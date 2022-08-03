@@ -8,13 +8,17 @@ class ToDoItemsRepository {
         listOfItems.add(item)
     }
     fun getItem(ind:Int):ToDoItem{
-        return listOfItems.get(ind)
+        return listOfItems[ind]
     }
     fun getSize():Int{
         return listOfItems.size
     }
+    fun deleteItem(ind:Int){
+        listOfItems.removeAt(ind)
+    }
     companion object {
-        fun init():ToDoItemsRepository {
+        val INSTANCE by lazy { init() }
+        private fun init():ToDoItemsRepository {
             val rep = ToDoItemsRepository()
             val today = Calendar.getInstance()
             val deadline = Calendar.getInstance()
