@@ -1,4 +1,4 @@
-package com.mopchik.planner.application_layer
+package com.mopchik.planner.layers
 
 import android.app.Application
 import android.content.Context

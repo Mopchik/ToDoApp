@@ -1,7 +1,6 @@
-package com.mopchik.planner.application_layer
+package com.mopchik.planner.layers
 
-import com.mopchik.planner.ViewModelFactory
-import com.mopchik.planner.data_worker_todoitems.ToDoItemsRepository
+import com.mopchik.planner.data_worker.ToDoItemsRepository
 
 class ApplicationComponent {
     private val toDoItemsRepository: ToDoItemsRepository = ToDoItemsRepository.INSTANCE

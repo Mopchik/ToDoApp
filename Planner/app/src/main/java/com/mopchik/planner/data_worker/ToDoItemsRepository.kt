@@ -1,45 +1,63 @@
-package com.mopchik.planner.data_worker_todoitems
+package com.mopchik.planner.data_worker
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
+import com.mopchik.planner.to_do_item.Importance
+import com.mopchik.planner.to_do_item.ToDoItem
 import kotlinx.coroutines.*
 import java.util.Calendar
 
 class ToDoItemsRepository {
-    private val listOfItems:ArrayList<ToDoItem> = ArrayList()
+    private var listOfItems:ArrayList<ToDoItem> = ArrayList()
     val liveData = MutableLiveData<List<ToDoItem>>()
+    private val scope = CoroutineScope(Dispatchers.IO)
 
     suspend fun addNewItem(item: ToDoItem){
-        withContext(Dispatchers.IO) {
+        scope.launch {
             listOfItems.add(item)
             liveData.postValue(listOfItems)
         }
     }
-    suspend fun deleteItem(ind:Int) {
-        withContext(Dispatchers.IO) {
-            listOfItems.removeAt(ind)
-            liveData.postValue(listOfItems)
-        }
+
+    suspend fun deleteItem(item: ToDoItem) {
+        scope.launch {
+            listOfItems.remove(item)
+        }.join()
+        liveData.value = listOfItems
     }
-    suspend fun changeItem(newItem: ToDoItem, pos:Int){
-        withContext(Dispatchers.IO){
-            listOfItems[pos] = newItem
-            liveData.postValue(listOfItems)
+
+    suspend fun setList(list: List<ToDoItem>){
+        scope.launch {
+            listOfItems = ArrayList(list)
+        }.join()
+        liveData.value = listOfItems
+    }
+
+    suspend fun changeItem(oldItem: ToDoItem, newItem: ToDoItem){
+        scope.launch{
+            try {
+                listOfItems[listOfItems.indexOf(oldItem)] = newItem
+                liveData.postValue(listOfItems)
+            } catch(e: ArrayIndexOutOfBoundsException){
+                Log.e("Kostik", "Clicking too fast " + e.message)
+            }
         }
     }
     suspend fun updateToDoItems(){
-        withContext(Dispatchers.IO){
+        scope.launch{
             // listOfItems = ...
+            liveData.postValue(listOfItems)
         }
-        liveData.postValue(listOfItems)
     }
 
     companion object {
         val INSTANCE by lazy {
             val rep = ToDoItemsRepository()
-            val scope = CoroutineScope(Dispatchers.IO)
-            scope.launch {
-                init(rep)
-            }
+            // val scope = CoroutineScope(Dispatchers.IO)
+            // scope.launch {
+            //     init(rep)
+            // }
             rep
         }/*{
             if(_inst == null) {
@@ -70,36 +88,30 @@ class ToDoItemsRepository {
             val scope = CoroutineScope(Dispatchers.IO)
 
             val job1 = scope.launch {
-                delay(1000)
                 it1 = ToDoItem(
                     "1", "Сделать дз", Importance.HIGH, false, today,
                     deadline = deadline, changeDate = changeDate
                 )
             }
             val job2 = scope.launch {
-                delay(1000)
                 it2 = ToDoItem(
                     "2", "Сходить в магазин", Importance.LOW, false, today,
                     deadline = deadline
                 )
             }
             val job3 = scope.launch {
-                delay(1000)
                 it3 = ToDoItem("3", "Watch lection", Importance.NO, false, today)
             }
             val job4 = scope.launch {
-                delay(1000)
                 it4 = ToDoItem(
                     "4", "Покурить", Importance.HIGH, false, today,
                     changeDate = changeDate
                 )
             }
             val job5 = scope.launch {
-                delay(1000)
                 it5 = ToDoItem("5", "", Importance.LOW, false, today)
             }
             val job6 = scope.launch {
-                delay(1000)
                 it6 = ToDoItem(
                     "6", "Сыграть в доту за найтсталкера и победить минимум 5 раз из 7, " +
                             "либо сыграть за бистмастера и победить минимум 9 раз из 10",
@@ -107,19 +119,15 @@ class ToDoItemsRepository {
                 )
             }
             val job7 = scope.launch {
-                delay(1000)
                 it7 = ToDoItem("7", "Покопаться в себе", Importance.HIGH, false, today)
             }
             val job8 = scope.launch {
-                delay(1000)
                 it8 = ToDoItem("8", "Подумать над будущим", Importance.LOW, false, today)
             }
             val job9 = scope.launch {
-                delay(1000)
                 it9 = ToDoItem("9", "Ещё покурить", Importance.HIGH, false, today)
             }
             val job10 = scope.launch {
-                delay(1000)
                 it10 = ToDoItem("10", "Ну и ещё покурить", Importance.HIGH, false, today)
             }
             job1.join()

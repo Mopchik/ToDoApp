@@ -1,9 +1,9 @@
-package com.mopchik.planner
+package com.mopchik.planner.layers
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.mopchik.planner.data_worker_todoitems.ToDoItemViewModel
-import com.mopchik.planner.data_worker_todoitems.ToDoItemsRepository
+import com.mopchik.planner.data_worker.ToDoItemViewModel
+import com.mopchik.planner.data_worker.ToDoItemsRepository
 
 class ViewModelFactory(private val rep: ToDoItemsRepository):ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T = when (modelClass) {
