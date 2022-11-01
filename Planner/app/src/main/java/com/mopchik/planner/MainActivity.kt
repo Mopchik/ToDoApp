@@ -3,6 +3,7 @@ package com.mopchik.planner
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+<<<<<<< Updated upstream
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -13,6 +14,16 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
 
     val adapter = ToDoItemAdapter(ToDoItemsRepository.init())
+=======
+import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
+import com.mopchik.planner.fragments.list.ListFragment
+
+class MainActivity : AppCompatActivity() {
+    init{
+        Log.i("KOSTIK", "Activity constructor started.")
+    }
+>>>>>>> Stashed changes
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -28,6 +39,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+<<<<<<< Updated upstream
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if(resultCode == Activity.RESULT_OK){
@@ -44,4 +56,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+=======
+>>>>>>> Stashed changes
 }
