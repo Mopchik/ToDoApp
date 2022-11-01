@@ -28,11 +28,6 @@ class ListFragmentController(private val component: ListFragmentComponent,
         setVisibility()
     }
 
-    fun setVisibility(visibility: Boolean){
-        adapter.showOnlyImportant = visibility
-        setVisibility()
-    }
-
     private fun setVisibility(){
         if(adapter.showOnlyImportant){
             component.visibilityImageView.setBackgroundResource(R.drawable.ic_baseline_visibility_off_24)

@@ -10,11 +10,18 @@
 
     <CheckBox
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" tools:layout_editor_absoluteY="32dp"
-            tools:layout_editor_absoluteX="16dp" android:id="@+id/toDoItem_checkBox"
-            android:textColorLink="@color/colorPrimary"/>
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteY="32dp"
+            tools:layout_editor_absoluteX="16dp"
+            android:id="@+id/toDoItem_checkBox" />
+    <ImageView
+            android:id="@+id/priority_high"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginTop="7dp"
+            android:src="@drawable/priority_high"/>
     <TextView
-            android:text=""
+            android:textColor="@android:color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -22,6 +29,11 @@
             android:id="@+id/toDoItem_text"
             android:maxLines="3"
             android:ellipsize="end"
-            android:paddingBottom="5dp"/>
-
+            android:paddingBottom="15dp"
+            android:layout_marginEnd="10dp"/>
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_outline_info_24"
+            android:layout_gravity="center_vertical"/>
 </android.widget.LinearLayout>

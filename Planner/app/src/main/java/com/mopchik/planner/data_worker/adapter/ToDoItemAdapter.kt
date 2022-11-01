@@ -1,6 +1,5 @@
 package com.mopchik.planner.data_worker.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
@@ -11,20 +10,15 @@ import com.mopchik.planner.to_do_item.ToDoItem
 class ToDoItemAdapter(
     private val onClick: (item: ToDoItem) -> Unit,
     private val onCheck: (item: ToDoItem, isChecked:Boolean) -> Unit,
-    showOnlyImportant: Boolean
+    startedShowOnlyImportant: Boolean
 ):
     ListAdapter<ToDoItem, ToDoItemViewHolder>(ToDoItemsDiffCallback()) {
 
-    var showOnlyImportant:Boolean = showOnlyImportant
-        set(value){
-            field = value
-            submitDueToImportanceVisibility()
-        }
-
-    init{
-        Log.i("KOSTIK", "Created new adapter")
+    var showOnlyImportant:Boolean = startedShowOnlyImportant
+    set(value){
+        field = value
+        submitDueToImportanceVisibility()
     }
-
 
     fun submitDueToImportanceVisibility(){
         if(showOnlyImportant){

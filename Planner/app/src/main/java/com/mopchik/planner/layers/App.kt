@@ -8,12 +8,14 @@ import android.content.Context
  * as long as application lives.
  */
 class App : Application() {
-    lateinit var appComponent: ApplicationComponent
-    // val applicationComponent by lazy { ApplicationComponent(applicationContext) }
+
+    lateinit var applicationComponent: ApplicationComponent
+
     override fun onCreate() {
         super.onCreate()
-        appComponent = DaggerApplicationComponent.factory().create(this)
+        applicationComponent = DaggerApplicationComponent.factory().create(this)
     }
+
     companion object {
         /**
          * Shortcut to get [App] instance from any context, e.g. from Activity.

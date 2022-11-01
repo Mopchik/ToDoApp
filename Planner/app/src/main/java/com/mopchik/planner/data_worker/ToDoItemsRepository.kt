@@ -1,61 +1,31 @@
 package com.mopchik.planner.data_worker
 
+import com.mopchik.planner.data_worker.data_base.ToDoItemDao
 import com.mopchik.planner.to_do_item.ToDoItem
 import kotlinx.coroutines.*
 import javax.inject.Inject
 
-class ToDoItemsRepository @Inject constructor(
-    private val toDoItemDao: ToDoItemDao) {
-    // private var listOfItems:List<ToDoItem> = ArrayList()
-    // val liveData = MutableLiveData<List<ToDoItem>>()
-    val dbLiveData = toDoItemDao.observeAll()
+class ToDoItemsRepository @Inject constructor(private val toDoItemDao: ToDoItemDao) {
+    val liveData = toDoItemDao.getLiveData()
     private val scope = CoroutineScope(Dispatchers.IO)
-
 
     fun addNewItem(item: ToDoItem){
         scope.launch {
-            // listOfItems.add(item)
-            // liveData.postValue(listOfItems)
             toDoItemDao.addToDoItem(item)
         }
     }
 
     fun deleteItem(item: ToDoItem) {
-        // scope.launch {
-        //     listOfItems.remove(item)
-        // }.join()
-        // liveData.value = listOfItems
         scope.launch {
             toDoItemDao.removeToDoItem(item)
         }
     }
 
-    // suspend fun setList(list: List<ToDoItem>){
-    //     scope.launch {
-    //         listOfItems = ArrayList(list)
-    //     }.join()
-    //     liveData.value = listOfItems
-    // }
-
-    fun changeItem(oldItem: ToDoItem, newItem: ToDoItem){
-        // scope.launch{
-        //     try {
-        //         listOfItems[listOfItems.indexOf(oldItem)] = newItem
-        //         liveData.postValue(listOfItems)
-        //     } catch(e: ArrayIndexOutOfBoundsException){
-        //         Log.e("Kostik", "Clicking too fast " + e.message)
-        //     }
-        // }
-        scope.launch {
+    fun changeItem(newItem: ToDoItem){
+        scope.launch{
             toDoItemDao.editToDoItem(newItem)
         }
     }
-    // suspend fun updateToDoItems(){
-    //     scope.launch{
-    //         // listOfItems = ...
-    //         liveData.postValue(listOfItems)
-    //     }
-    // }
 
     // companion object {
     //     val INSTANCE by lazy {
