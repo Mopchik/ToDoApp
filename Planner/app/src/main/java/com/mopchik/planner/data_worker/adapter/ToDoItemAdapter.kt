@@ -14,6 +14,8 @@ class ToDoItemAdapter(
 ):
     ListAdapter<ToDoItem, ToDoItemViewHolder>(ToDoItemsDiffCallback()) {
 
+    val toDoItemsListInfo = ToDoItemsListInfo()
+
     var showOnlyImportant:Boolean = startedShowOnlyImportant
     set(value){
         field = value
@@ -28,7 +30,6 @@ class ToDoItemAdapter(
         }
     }
 
-    val toDoItemsListInfo = ToDoItemsListInfo()
 
     override fun getItemCount(): Int {
         return if(showOnlyImportant)

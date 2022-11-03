@@ -6,7 +6,9 @@ import java.util.*
 
 class ToDoItemWorker {
     companion object {
-        fun changeToDoItemFromBundle(bundle: Bundle, oldItem: ToDoItem): ToDoItem {
+        fun changeToDoItemFromBundle(isCreating: Boolean,
+                                     bundle: Bundle,
+                                     oldItem: ToDoItem): ToDoItem {
             val item = oldItem.copy()
             item.text = bundle.getString("description") ?: throw NullPointerException()
             val importanceId = bundle.getInt("importance", -1)
@@ -21,7 +23,8 @@ class ToDoItemWorker {
             } else {
                 item.deadline = null
             }
-            item.changeDate = Calendar.getInstance()
+            if(!isCreating)
+                item.changeDate = Calendar.getInstance()
             return item
         }
     }

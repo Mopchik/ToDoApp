@@ -3,24 +3,28 @@ package com.mopchik.planner.fragments.list
 import android.content.Context
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.mopchik.planner.R
+import com.mopchik.planner.*
 import com.mopchik.planner.data_worker.adapter.ToDoItemAdapter
+import javax.inject.Inject
 
-class ListFragmentController(private val component: ListFragmentComponent,
-                             private val adapter: ToDoItemAdapter,
-                             private val startAddFragment: ()->Unit,
-                             private val layoutManagerContext: Context) {
+@ListFragmentViewScope
+class ListFragmentController @Inject constructor(private val binding: ListFragmentBinding,
+                                                 private val adapter: ToDoItemAdapter,
+                                                 @ContextClass(ContextOwner.LIST_FRAGMENT)
+                                                 private val layoutManagerContext: Context,
+                                                 @ActionParameterType(TypeOfAction.START_ADD_FRAGMENT)
+                                                 private val startAddFragment: () -> Unit) {
     fun setUpViews(){
-        component.recycler.adapter = adapter
-        component.recycler.layoutManager =
+        binding.recycler.adapter = adapter
+        binding.recycler.layoutManager =
             LinearLayoutManager(layoutManagerContext, RecyclerView.VERTICAL, false)
-        component.howManyDoneTextView.text =
+        binding.howManyDoneTextView.text =
             "Выполнено — " + adapter.toDoItemsListInfo.completedSize
         setVisibility()
-        component.visibilityImageView.setOnClickListener{
+        binding.visibilityImageView.setOnClickListener{
             onVisibilityChanged()
         }
-        component.fab.setOnClickListener { startAddFragment() }
+        binding.fab.setOnClickListener { startAddFragment() }
     }
 
     private fun onVisibilityChanged(){
@@ -30,9 +34,9 @@ class ListFragmentController(private val component: ListFragmentComponent,
 
     private fun setVisibility(){
         if(adapter.showOnlyImportant){
-            component.visibilityImageView.setBackgroundResource(R.drawable.ic_baseline_visibility_off_24)
+            binding.visibilityImageView.setBackgroundResource(R.drawable.ic_baseline_visibility_off_24)
         } else{
-            component.visibilityImageView.setBackgroundResource(R.drawable.ic_baseline_visibility_24)
+            binding.visibilityImageView.setBackgroundResource(R.drawable.ic_baseline_visibility_24)
         }
     }
 }

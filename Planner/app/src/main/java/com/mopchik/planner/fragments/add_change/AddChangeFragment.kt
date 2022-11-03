@@ -7,21 +7,23 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResult
 import com.mopchik.planner.*
-
+import javax.inject.Inject
 
 
 class AddChangeFragment: Fragment() {
-
-    private lateinit var component: AddChangeFragmentComponent
+    private lateinit var component: AddChangeFragmentViewComponent
+    @Inject
+    lateinit var controller: AddChangeFragmentController
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View{
-        val isCreatingNew = requireArguments().getBoolean(CREATING_KEY)
         val fragmentView = inflater.inflate(R.layout.add_fragment, container, false)
-        component = AddChangeFragmentComponent(fragmentView, isCreatingNew)
-        val controller = AddChangeFragmentController(arguments, component, requireContext(),
-                saveOptions={bundle->saveOptions(bundle)},
-                goBack={goBack()})
+        component = (requireActivity() as MainActivity)
+            .component
+            .addChangeFragmentViewComponentFactory()
+            .create(fragmentView, requireContext(), requireArguments(),
+                saveOptions={bundle -> saveOptions(bundle)}, goBack = {goBack()})
+        component.inject(this)
         controller.setUpViews()
         return fragmentView
     }

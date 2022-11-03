@@ -9,6 +9,7 @@ class ToDoItemViewModel(
     private val rep: ToDoItemsRepository
 ): ViewModel() {
     val toDoItemsLiveData = rep.liveData
+    lateinit var changingItem: ToDoItem
 
     fun onAddToDoItem(item: ToDoItem) {
         rep.addNewItem(item)

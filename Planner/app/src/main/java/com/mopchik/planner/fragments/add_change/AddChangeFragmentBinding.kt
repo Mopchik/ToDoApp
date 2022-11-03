@@ -4,11 +4,13 @@ import android.annotation.SuppressLint
 import android.view.View
 import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.mopchik.planner.AddChangeFragmentViewScope
 import com.mopchik.planner.R
 import java.util.*
+import javax.inject.Inject
 
-class AddChangeFragmentComponent(fragmentView: View,
-                                 val isCreatingNew: Boolean) {
+@AddChangeFragmentViewScope
+class AddChangeFragmentBinding @Inject constructor(fragmentView: View) {
     val closeBtn: Button
     val saveBtn: Button
     val editText: EditText

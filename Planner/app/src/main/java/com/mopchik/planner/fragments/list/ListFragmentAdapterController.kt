@@ -1,36 +1,23 @@
 package com.mopchik.planner.fragments.list
 
 import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.LiveData
+import com.mopchik.planner.ListFragmentScope
 import com.mopchik.planner.to_do_item.ToDoItem
 import com.mopchik.planner.data_worker.adapter.ToDoItemAdapter
 import com.mopchik.planner.data_worker.ToDoItemViewModel
+import javax.inject.Inject
 
-class ListFragmentAdapterController(private val startChangeFragment:(item: ToDoItem)->Unit,
-                                    private val viewModel: ToDoItemViewModel,
-                                    private val lifecycleOwner: LifecycleOwner,
-                                    private val showOnlyImportant:Boolean) {
-    val adapter: ToDoItemAdapter
-    lateinit var changingItem: ToDoItem
+@ListFragmentScope
+class ListFragmentAdapterController @Inject constructor(val adapter: ToDoItemAdapter) {
 
-    init {
-        adapter = ToDoItemAdapter(
-            onClick = { item ->
-                changingItem = item
-                startChangeFragment(item) },
-            onCheck = {
-                    item: ToDoItem, isChecked:Boolean ->
-                val newItem = item.copy(isDone = isChecked)
-                viewModel.onChangeToDoItem(newItem)
-            },
-            showOnlyImportant
-        )
-    }
-
-    fun observeData(component: ListFragmentComponent){
-        viewModel.toDoItemsLiveData.observe(lifecycleOwner){ newToDoItems ->
+    fun observeData(liveData: LiveData<List<ToDoItem>>,
+                    binding: ListFragmentBinding,
+                    lifecycleOwner: LifecycleOwner){
+        liveData.observe(lifecycleOwner){ newToDoItems ->
             adapter.toDoItemsListInfo.toDoActualList = newToDoItems
             adapter.submitDueToImportanceVisibility()
-            component.howManyDoneTextView.text = "Выполнено — " +
+            binding.howManyDoneTextView.text = "Выполнено — " +
                     adapter.toDoItemsListInfo.completedSize
         }
     }
