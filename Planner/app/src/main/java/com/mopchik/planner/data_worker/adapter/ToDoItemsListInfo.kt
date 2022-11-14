@@ -7,7 +7,7 @@ class ToDoItemsListInfo {
     set(value){
         field = value
         completedSize = calculateCompletedSize()
-        importantListIndexes = calculateImportantListIndexes()
+        importantListIndexes = calculateNotDoneListIndexes()
         notDoneList = calculateNotDoneList()
     }
 
@@ -33,23 +33,23 @@ class ToDoItemsListInfo {
     var notDoneList:List<ToDoItem> = ArrayList()
     private set
 
-    private fun calculateImportantListIndexes():List<Int> {
-        val importantList = ArrayList<Int>()
-        for (i in toDoActualList.indices) {
-            if (!toDoActualList[i].isDone) {
-                importantList.add(i)
-            }
-        }
-        return importantList
+    private fun calculateNotDoneListIndexes():List<Int> {
+        // val importantList = ArrayList<Int>()
+        // for (i in toDoActualList.indices) {
+        //     if (!toDoActualList[i].isDone) {
+        //         importantList.add(i)
+        //     }
+        // }
+        return calculateNotDoneList().indices.toList()
     }
     private fun calculateNotDoneList():List<ToDoItem> {
-        val importantList = ArrayList<ToDoItem>()
-        for (i in toDoActualList) {
-            if (!i.isDone) {
-                importantList.add(i)
-            }
-        }
-        return importantList
+        // val importantList = ArrayList<ToDoItem>()
+        // for (i in toDoActualList) {
+        //     if (!i.isDone) {
+        //         importantList.add(i)
+        //     }
+        // }
+        return toDoActualList.filterNot { it.isDone }
     }
 
 }

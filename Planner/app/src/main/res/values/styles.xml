@@ -1,41 +1,19 @@
 <resources>
-
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-    </style>
-    <style name="AppTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
-
-    <style name="checkBoxStandard" parent="Theme.AppCompat.Light">
-        <item name="colorControlNormal">@android:color/darker_gray</item>
-        <item name="colorControlActivated">@android:color/holo_green_light</item>
-    </style>
-    <style name="checkBoxImportant" parent="Theme.AppCompat.Light">
-        <item name="colorControlNormal">@android:color/holo_red_light</item>
-        <item name="colorControlActivated">@android:color/holo_green_light</item>
-    </style>
-
-    <style name="switchDate" parent="Theme.AppCompat.Light">
+    <style name="SwitchDate">
         <!-- active thumb & track color (30% transparency) -->
-        <item name="colorControlActivated">@color/blue</item>
-
+        <item name="colorControlActivated">?attr/colorBlue</item>
         <!-- inactive thumb color -->
-        <item name="colorSwitchThumbNormal">@android:color/white</item>
-
+        <item name="colorSwitchThumbNormal">?attr/colorSecondary</item>
         <!-- inactive track color (30% transparency) -->
-        <item name="android:colorForeground">#8E8E93</item>
+        <item name="android:colorForeground">?attr/colorGrayLight</item>
     </style>
 
-    <style name="DialogTheme" parent="Theme.AppCompat.Light.Dialog">
-        <item name="colorAccent">@color/blue</item>
+    <style name="DialogTheme">
+        <item name="colorAccent">?attr/colorBlue</item>
+    </style>
+
+    <style name="FloatingActionButtonStyle" parent="Widget.Design.FloatingActionButton">
+        <item name="backgroundTint">?attr/colorBlue</item>
     </style>
 
 </resources>

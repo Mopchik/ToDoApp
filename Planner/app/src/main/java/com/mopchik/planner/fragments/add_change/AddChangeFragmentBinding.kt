@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.view.View
 import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.google.android.material.switchmaterial.SwitchMaterial
 import com.mopchik.planner.AddChangeFragmentViewScope
 import com.mopchik.planner.R
 import java.util.*
@@ -20,7 +21,7 @@ class AddChangeFragmentBinding @Inject constructor(fragmentView: View) {
     val chooseImportanceLayout: ConstraintLayout
     val chooseDateLayout: ConstraintLayout
     @SuppressLint("UseSwitchCompatOrMaterialCode")
-    val switchDate: Switch
+    val switchDate: SwitchMaterial
     val deleteLayout: ConstraintLayout
     val deleteIcon: ImageView
     val deleteText: TextView

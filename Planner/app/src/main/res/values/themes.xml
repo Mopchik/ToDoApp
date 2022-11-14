@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <!-- Back colors. -->
+        <item name="colorPrimary">@color/white_little_yellow</item>
+        <item name="android:windowBackground">@color/white_little_yellow</item>
+        <item name="colorPrimaryDark">@color/white_little_yellow</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="colorSecondary">@color/white</item>
+        <item name="colorElevated">@color/white</item>
+        <!-- Colors -->
+        <item name="colorRed">@color/red</item>
+        <item name="colorGreen">@color/green</item>
+        <item name="colorBlue">@color/blue</item>
+        <item name="colorGray">@color/light_gray_2</item>
+        <item name="colorGrayLight">@color/white_gray</item>
+        <!-- Text -->
+        <item name="colorPrimaryLabel">@color/black</item>
+        <item name="colorSecondaryLabel">@color/black_almost</item>
+        <item name="colorTertiaryLabel">@color/dark_gray_4D</item>
+        <item name="colorDisableLabel">@color/dark_gray_26</item>
+        <!-- Support -->
+        <item name="colorSeparator">@color/dark_gray_33</item>
+        <item name="colorOverlay">@color/dark_gray_0F</item>
+        <!-- <item name="colorPrimaryVariant">#000000</item>-->
+        <!-- <item name="colorOnPrimary">#000000</item>-->
+        <!-- <!- Secondary brand color. ->-->
+        <!-- <item name="colorSecondary">#99000000</item>-->
+        <!-- <item name="colorSecondaryVariant">#99000000</item>-->
+        <!-- <item name="colorOnSecondary">#99000000</item>-->
+
+        <item name="floatingActionButtonStyle">@style/FloatingActionButtonStyle</item>
+    </style>
+
+    <!-- <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>-->
+    <!-- <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>-->
+</resources>

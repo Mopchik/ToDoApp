@@ -1,9 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#00FF48</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
-    <color name="lightGray">#F7F6F2</color>
-    <color name="gray">#D1D1D6</color>
+    <color name="black">#000000</color>
+    <color name="dark_gray_33">#33000000</color>
+    <color name="dark_gray_0F">#0F000000</color>
+    <color name="black_almost">#99000000</color>
+    <color name="dark_gray_4D">#4D000000</color>
+    <color name="dark_gray_26">#26000000</color>
+    <color name="red">#FF3B30</color>
+    <color name="green">#34C759</color>
     <color name="blue">#007AFF</color>
+    <color name="light_gray_2">#8E8E93</color>
+    <color name="white_gray">#D1D1D6</color>
+    <color name="white">#FFFFFF</color>
+    <color name="white_little_yellow">#F7F6F2</color>
+
+    <color name="gray">#33FFFFFF</color>
+    <color name="dark_gray_52">#52000000</color>
+    <color name="light_gray">#99FFFFFF</color>
+    <color name="light_gray_3">#66FFFFFF</color>
+    <color name="gray_2">#26FFFFFF</color>
+    <color name="red_2">#FF453A</color>
+    <color name="green_2">#32D74B</color>
+    <color name="blue_2">#0A84FF</color>
+    <color name="gray_3">#48484A</color>
+    <color name="black_almost_2">#161618</color>
+    <color name="gray_darker">#252528</color>
+    <color name="gray_4">#3C3C3F</color>
 </resources>

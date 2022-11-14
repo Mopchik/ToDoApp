@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="colorElevated" format="color|reference"/>
+
+    <attr name="colorRed" format="color|reference"/>
+    <attr name="colorGreen" format="color|reference"/>
+    <attr name="colorBlue" format="color|reference"/>
+    <attr name="colorGray" format="color|reference"/>
+    <attr name="colorGrayLight" format="color|reference"/>
+
+    <attr name="colorPrimaryLabel" format="color|reference"/>
+    <attr name="colorSecondaryLabel" format="color|reference"/>
+    <attr name="colorTertiaryLabel" format="color|reference"/>
+    <attr name="colorDisableLabel" format="color|reference"/>
+
+    <attr name="colorSeparator" format="color|reference"/>
+    <attr name="colorOverlay" format="color|reference"/>
+
+    <attr name="colorCheckBoxBorder" format="color|reference"/>
+</resources>

@@ -13,6 +13,7 @@ import javax.inject.Inject
 class ListFragmentBinding @Inject constructor(fragmentView: View) {
     val howManyDoneTextView: TextView
     val visibilityImageView: ImageView
+    val nightImageView: ImageView
     val fab: FloatingActionButton
     val recycler: RecyclerView
     init {
@@ -20,5 +21,6 @@ class ListFragmentBinding @Inject constructor(fragmentView: View) {
         visibilityImageView = fragmentView.findViewById(R.id.visibilityImageView)
         fab = fragmentView.findViewById(R.id.fab)
         recycler = fragmentView.findViewById(R.id.recycler)
+        nightImageView = fragmentView.findViewById(R.id.nightImageView)
     }
 }

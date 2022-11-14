@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="Theme.MaterialComponents">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <!-- Back colors. -->
+        <item name="colorPrimary">@color/black_almost_2</item>
+        <item name="android:windowBackground">@color/black_almost_2</item>
+        <item name="colorPrimaryDark">@color/black_almost_2</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="colorSecondary">@color/gray_darker</item>
+        <item name="colorElevated">@color/gray_4</item>
+        <!-- Colors -->
+        <item name="colorRed">@color/red_2</item>
+        <item name="colorGreen">@color/green_2</item>
+        <item name="colorBlue">@color/blue_2</item>
+        <item name="colorGray">@color/light_gray_2</item>
+        <item name="colorGrayLight">@color/gray_3</item>
+        <!-- Text -->
+        <item name="colorPrimaryLabel">@color/white</item>
+        <item name="colorSecondaryLabel">@color/light_gray</item>
+        <item name="colorTertiaryLabel">@color/light_gray_3</item>
+        <item name="colorDisableLabel">@color/gray_2</item>
+        <!-- Support -->
+        <item name="colorSeparator">@color/gray</item>
+        <item name="colorOverlay">@color/dark_gray_52</item>
+        <!-- <item name="colorPrimaryVariant">#000000</item>-->
+        <!-- <item name="colorOnPrimary">#000000</item>-->
+        <!-- <!- Secondary brand color. ->-->
+        <!-- <item name="colorSecondary">#99000000</item>-->
+        <!-- <item name="colorSecondaryVariant">#99000000</item>-->
+        <!-- <item name="colorOnSecondary">#99000000</item>-->
+
+        <item name="floatingActionButtonStyle">@style/FloatingActionButtonStyle</item>
+    </style>
+</resources>

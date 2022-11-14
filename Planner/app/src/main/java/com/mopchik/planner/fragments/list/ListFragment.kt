@@ -16,11 +16,15 @@ import javax.inject.Inject
 
 class ListFragment : Fragment() {
 
-    private val app
-        get() = App.get(requireContext())
+    private val app by lazy{ App.get(requireContext()) }
     private val viewModel: ToDoItemViewModel by viewModels {
         app.viewModelFactory }
-    private lateinit var component: ListFragmentComponent
+    private val component by lazy{
+        (requireActivity() as MainActivity)
+            .component
+            .listFragmentComponentFactory()
+            .create(viewModel, this, parentFragmentManager, requireContext())
+    }
     private lateinit var viewComponent: ListFragmentViewComponent
     @Inject
     lateinit var adapterController: ListFragmentAdapterController
@@ -31,10 +35,6 @@ class ListFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        component = (requireActivity() as MainActivity)
-            .component
-            .listFragmentComponentFactory()
-            .create(viewModel, this, parentFragmentManager, requireContext())
         component.inject(this)
         setFragmentResultListener(REQUEST_KEY){ _, bundle ->
             communicator.getResultOnListFragmentAfterAddChangeFragment(bundle)
@@ -57,6 +57,7 @@ class ListFragment : Fragment() {
         super.onPause()
         prefs.edit()
              .putBoolean("visibility", adapterController.adapter.showOnlyImportant)
+             .putBoolean("isNight", viewModel.isNight)
              .apply()
     }
 

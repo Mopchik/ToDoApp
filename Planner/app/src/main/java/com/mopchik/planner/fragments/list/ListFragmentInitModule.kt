@@ -1,6 +1,9 @@
 package com.mopchik.planner.fragments.list
 
+import android.content.Context
 import android.content.SharedPreferences
+import com.mopchik.planner.ContextClass
+import com.mopchik.planner.ContextOwner
 import com.mopchik.planner.ListFragmentScope
 import com.mopchik.planner.data_worker.ToDoItemViewModel
 import com.mopchik.planner.data_worker.adapter.ToDoItemAdapter
@@ -14,7 +17,7 @@ object ListFragmentInitModule {
     @ListFragmentScope
     fun provideAdapter(prefs: SharedPreferences,
                        viewModel: ToDoItemViewModel,
-                       communicator: ListAddChangeFragmentsCommunicator): ToDoItemAdapter {
+                       communicator: ListAddChangeFragmentsCommunicator, ): ToDoItemAdapter {
         val showOnlyImportant = prefs.getBoolean("visibility", false)
         return ToDoItemAdapter(
             onClick = { item ->

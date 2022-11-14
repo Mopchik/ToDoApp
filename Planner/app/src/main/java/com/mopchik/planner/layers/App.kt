@@ -3,6 +3,7 @@ package com.mopchik.planner.layers
 import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
+import android.util.Log
 import javax.inject.Inject
 
 /**
@@ -17,6 +18,7 @@ class App : Application() {
     lateinit var applicationComponent: ApplicationComponent
     override fun onCreate() {
         super.onCreate()
+        Log.i("KOSTIK", "Application created")
         applicationComponent = DaggerApplicationComponent.factory().create(this)
         applicationComponent.inject(this)
     }

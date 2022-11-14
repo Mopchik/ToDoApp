@@ -18,10 +18,10 @@
             android:id="@+id/priority_high"
             android:layout_width="16dp"
             android:layout_height="16dp"
-            android:layout_marginTop="7dp"
+            android:layout_marginTop="17dp"
             android:src="@drawable/priority_high"/>
     <TextView
-            android:textColor="@android:color/black"
+            android:textColor="?attr/colorSecondaryLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

@@ -2,20 +2,21 @@ package com.mopchik.planner
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import com.mopchik.planner.fragments.list.ListFragment
 import com.mopchik.planner.layers.App
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var component: MainActivityComponent
-    private val app
-        get() = App.get(this)
-
+    private val app by lazy{ App.get(this) }
+    val component: MainActivityComponent by lazy {
+        app.applicationComponent.mainActivityComponent()
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        component = app.applicationComponent.mainActivityComponent()
+        // AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         setContentView(R.layout.activity_main)
-        if(supportFragmentManager.fragments.isEmpty()) {
+        if(savedInstanceState == null) {
             val listFragment = ListFragment()
             supportFragmentManager
                 .beginTransaction()

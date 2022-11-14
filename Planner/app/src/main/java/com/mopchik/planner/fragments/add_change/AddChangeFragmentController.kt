@@ -6,11 +6,14 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.util.TypedValue
 import android.view.View
 import android.widget.CompoundButton
 import android.widget.DatePicker
+import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import com.mopchik.planner.*
+import com.mopchik.planner.others.StyleWorker
 import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject
@@ -20,7 +23,7 @@ class AddChangeFragmentController @Inject constructor(
     private val arguments: Bundle,
     private val binding: AddChangeFragmentBinding,
     @ContextClass(ContextOwner.ADD_CHANGE_FRAGMENT)
-    private val datePickerDialogContext: Context,
+    private val context: Context,
     private val saveOptions: (Bundle)->Unit,
     @ActionParameterType(TypeOfAction.GO_BACK)
     private val goBack:()->Unit
@@ -80,8 +83,12 @@ class AddChangeFragmentController @Inject constructor(
 
     private fun initDeleteLayout(){
         if(isCreatingNew){
-            binding.deleteIcon.setColorFilter(Color.GRAY)
-            binding.deleteText.setTextColor(Color.GRAY)
+            binding.deleteIcon.setColorFilter(
+                StyleWorker.getColorByAttr(R.attr.colorGrayLight, context)
+            )
+            binding.deleteText.setTextColor(
+                StyleWorker.getColorByAttr(R.attr.colorTertiaryLabel, context)
+            )
         }
         binding.deleteLayout.setOnClickListener {
             if(!isCreatingNew) {
@@ -113,7 +120,7 @@ class AddChangeFragmentController @Inject constructor(
         onDateSetListener: DatePickerDialog.OnDateSetListener){
         if(binding.switchDate.isChecked) {
             val datePickerDialog = DatePickerDialog(
-                datePickerDialogContext, R.style.DialogTheme, onDateSetListener,
+                context, R.style.DialogTheme, onDateSetListener,
                 binding.chosenDate.get(
                     Calendar.YEAR),
                 binding.chosenDate.get(Calendar.MONTH),

@@ -1,6 +1,6 @@
 package com.mopchik.planner.data_worker.adapter
 
-import android.graphics.Color
+import android.content.Context
 import android.view.View
 import android.widget.CheckBox
 import android.widget.ImageView
@@ -18,7 +18,7 @@ class ToDoItemViewHolder(
     private val onClick: (item: ToDoItem) -> Unit,
     private val onCheck: (item: ToDoItem, isChecked:Boolean) -> Unit
 ) : RecyclerView.ViewHolder(itemView) {
-
+    private val context: Context = itemView.context
     private val textView = itemView.findViewById<TextView>(R.id.toDoItem_text)
     private val checkBox = itemView.findViewById<CheckBox>(R.id.toDoItem_checkBox)
     private val layout = itemView.findViewById<LinearLayout>(R.id.layout_item)
@@ -45,18 +45,20 @@ class ToDoItemViewHolder(
     }
 
     private fun setDoneStyle(){
-        textView.setTextColor(Color.GRAY)
+        textView.setTextColor(StyleWorker
+            .getColorByAttr(R.attr.colorTertiaryLabel, context))
         StyleWorker.crossOutTextView(textView)
-        StyleWorker.setCheckBoxDone(checkBox, itemView.resources)
+        StyleWorker.setCheckBoxDone(checkBox, itemView.resources, context)
     }
 
     private fun setUndoneStyle(importance: Importance){
-        textView.setTextColor(Color.BLACK)
+        textView.setTextColor(StyleWorker
+            .getColorByAttr(R.attr.colorPrimaryLabel, context))
         StyleWorker.noCrossOutTextView(textView)
         if (importance == Importance.HIGH) {
-            StyleWorker.setCheckBoxUndoneImportant(checkBox, itemView.resources)
+            StyleWorker.setCheckBoxUndoneImportant(checkBox, itemView.resources, context)
         } else {
-            StyleWorker.setCheckBoxUndoneNotImportant(checkBox, itemView.resources)
+            StyleWorker.setCheckBoxUndoneNotImportant(checkBox, itemView.resources, context)
         }
     }
 }
