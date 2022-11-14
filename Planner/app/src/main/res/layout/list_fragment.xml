@@ -15,7 +15,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:layout_scrollFlags="scroll|exitUntilCollapsed"
-                    app:scrimAnimationDuration="0">
+                    app:scrimAnimationDuration="0"
+                    android:background="?attr/colorPrimary">
                     <!-- app:statusBarScrim="#F7F6F2" -->
                     <!-- android:background="@color/lightGray" -->
                     <!-- app:contentScrim="@color/lightGray" -->
