@@ -8,8 +8,14 @@
         <item name="android:colorForeground">?attr/colorGrayLight</item>
     </style>
 
-    <style name="DialogTheme">
+    <style name="DialogTheme" parent="Theme.AppCompat.Light.Dialog">
         <item name="colorAccent">?attr/colorBlue</item>
+        <item name="android:windowBackground">?attr/colorSecondary</item>
+        <item name="android:textColorPrimary">?attr/colorPrimaryLabel</item>
+        <item name="android:textColorSecondary">?attr/colorSecondaryLabel</item>
+        <item name="android:textColorPrimaryInverse">@color/white</item>
+        <item name="colorOnPrimary">?attr/colorBlue</item>
+        <item name="android:headerBackground">?attr/colorBlue</item>
     </style>
 
     <style name="FloatingActionButtonStyle" parent="Widget.Design.FloatingActionButton">

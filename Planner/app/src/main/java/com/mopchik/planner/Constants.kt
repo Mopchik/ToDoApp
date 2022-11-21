@@ -9,6 +9,7 @@ const val CREATING_KEY = "creating"
 const val REQUEST_KEY = "request"
 const val ACTION_KEY = "action"
 const val APP_PREFERENCES = "mysettings"
+const val CHANNEL_ID = "Planner Notification Id"
 
 enum class Action{
     CREATE, CHANGE, DELETE

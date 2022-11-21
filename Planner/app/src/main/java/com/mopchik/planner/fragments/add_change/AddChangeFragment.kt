@@ -22,7 +22,8 @@ class AddChangeFragment: Fragment() {
             .component
             .addChangeFragmentViewComponentFactory()
             .create(fragmentView, requireContext(), requireArguments(),
-                saveOptions={bundle -> saveOptions(bundle)}, goBack = {goBack()})
+                saveOptions={bundle -> saveOptions(bundle)}, goBack = {goBack()},
+                childFragmentManager = childFragmentManager)
         component.inject(this)
         controller.setUpViews()
         return fragmentView

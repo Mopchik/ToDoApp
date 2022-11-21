@@ -3,11 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/kosty/.gradle/caches/transforms-3/228ed504aa0d5dbef3397cdf1b89e099/transformed/appcompat-1.5.0/res/drawable/abc_dialog_material_background.xml" value="0.1" />
         <entry key="..\:/Users/kosty/Documents/Planner/app/src/main/res/drawable-anydpi/ic_action_close.xml" value="0.1" />
         <entry key="..\:/Users/kosty/Documents/Planner/app/src/main/res/drawable-anydpi/ic_action_name.xml" value="0.1" />
         <entry key="..\:/Users/kosty/Documents/Planner/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="..\:/Users/kosty/Documents/Planner/app/src/main/res/drawable/checkbox.xml" value="0.1" />
         <entry key="..\:/Users/kosty/Documents/Planner/app/src/main/res/drawable/edit_text_rounded.xml" value="0.1" />
+        <entry key="..\:/Users/kosty/Documents/Planner/app/src/main/res/drawable/ic_baseline_bookmark_24.xml" value="0.1" />
         <entry key="..\:/Users/kosty/Documents/Planner/app/src/main/res/drawable/ic_baseline_visibility_24.xml" value="0.1" />
         <entry key="..\:/Users/kosty/Documents/Planner/app/src/main/res/drawable/ic_baseline_visibility_off_24.xml" value="0.1" />
         <entry key="..\:/Users/kosty/Documents/Planner/app/src/main/res/drawable/ic_baseline_wb_sunny_24.xml" value="0.1" />

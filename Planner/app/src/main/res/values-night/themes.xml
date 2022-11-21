@@ -24,12 +24,13 @@
         <!-- Support -->
         <item name="colorSeparator">@color/gray</item>
         <item name="colorOverlay">@color/dark_gray_52</item>
+
         <!-- <item name="colorPrimaryVariant">#000000</item>-->
-        <!-- <item name="colorOnPrimary">#000000</item>-->
-        <!-- <!- Secondary brand color. ->-->
-        <!-- <item name="colorSecondary">#99000000</item>-->
+        <!-- <item name="colorOnPrimary">@color/blue_2</item>-->
         <!-- <item name="colorSecondaryVariant">#99000000</item>-->
         <!-- <item name="colorOnSecondary">#99000000</item>-->
+        <!-- <item name="android:statusBarColor">@color/blue_2</item>-->
+        <!--<item name="titleTextColor">@color/blue_2</item>-->
 
         <item name="floatingActionButtonStyle">@style/FloatingActionButtonStyle</item>
     </style>

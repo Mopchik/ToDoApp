@@ -6,6 +6,7 @@ import com.mopchik.planner.AppScope
 import com.mopchik.planner.ContextClass
 import com.mopchik.planner.ContextOwner
 import com.mopchik.planner.MainActivityComponent
+import com.mopchik.planner.notifications_worker.NotificationSender
 import dagger.BindsInstance
 import dagger.Component
 
@@ -15,6 +16,7 @@ import dagger.Component
 interface ApplicationComponent {
     val viewModelFactory: ViewModelFactory
     val prefs: SharedPreferences
+    val notificationSender: NotificationSender
     @Component.Factory
     interface ApplicationComponentFactory{
         fun create(@BindsInstance

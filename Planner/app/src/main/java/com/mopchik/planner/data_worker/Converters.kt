@@ -17,7 +17,11 @@ class Converters {
         val day = intArray[0]
         val month = intArray[1]
         val year = intArray[2]
-        return Calendar.getInstance().apply{set(year, month, day)}
+        return Calendar.getInstance().apply{
+            set(year, month, day)
+            set(Calendar.HOUR, 0)
+            set(Calendar.MINUTE, 0)
+            set(Calendar.SECOND, 0)}
     }
 
     @TypeConverter

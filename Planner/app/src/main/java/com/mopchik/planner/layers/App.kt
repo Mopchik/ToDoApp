@@ -4,6 +4,9 @@ import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
+import com.mopchik.planner.notifications_worker.NotificationSender
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import javax.inject.Inject
 
 /**
@@ -15,7 +18,11 @@ class App : Application() {
     lateinit var viewModelFactory: ViewModelFactory
     @Inject
     lateinit var prefs: SharedPreferences
+    @Inject
+    lateinit var notificationSender: NotificationSender
+    val applicationDefaultScope = CoroutineScope(Dispatchers.Default)
     lateinit var applicationComponent: ApplicationComponent
+
     override fun onCreate() {
         super.onCreate()
         Log.i("KOSTIK", "Application created")

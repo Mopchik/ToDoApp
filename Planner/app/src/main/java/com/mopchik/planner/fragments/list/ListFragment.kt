@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.viewModelScope
 import com.mopchik.planner.*
 import com.mopchik.planner.layers.App
 import com.mopchik.planner.data_worker.*

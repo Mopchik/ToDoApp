@@ -3,6 +3,7 @@ package com.mopchik.planner.fragments.add_change
 import android.content.Context
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.FragmentManager
 import com.mopchik.planner.*
 import dagger.BindsInstance
 import dagger.Module
@@ -21,7 +22,9 @@ interface AddChangeFragmentViewComponent {
                    @BindsInstance arguments: Bundle,
                    @BindsInstance saveOptions: (Bundle)->Unit,
                    @BindsInstance @ActionParameterType(TypeOfAction.GO_BACK)
-                   goBack:()->Unit
+                   goBack:()->Unit,
+                   @BindsInstance @FragmentManagerClass(FragmentManagerOwner.ADD_CHANGE_FRAGMENT)
+                   childFragmentManager: FragmentManager
                    ):AddChangeFragmentViewComponent
     }
     fun inject(fragment: AddChangeFragment)

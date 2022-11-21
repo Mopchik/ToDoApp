@@ -12,6 +12,8 @@ import android.widget.CompoundButton
 import android.widget.DatePicker
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
+import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.FragmentManager
 import com.mopchik.planner.*
 import com.mopchik.planner.others.StyleWorker
 import java.text.SimpleDateFormat
@@ -26,7 +28,9 @@ class AddChangeFragmentController @Inject constructor(
     private val context: Context,
     private val saveOptions: (Bundle)->Unit,
     @ActionParameterType(TypeOfAction.GO_BACK)
-    private val goBack:()->Unit
+    private val goBack:()->Unit,
+    @FragmentManagerClass(FragmentManagerOwner.ADD_CHANGE_FRAGMENT)
+    private val childFragmentManager: FragmentManager
 ) {
 
     @SuppressLint("SimpleDateFormat")
@@ -119,15 +123,21 @@ class AddChangeFragmentController @Inject constructor(
     private fun startChoosingDate(
         onDateSetListener: DatePickerDialog.OnDateSetListener){
         if(binding.switchDate.isChecked) {
-            val datePickerDialog = DatePickerDialog(
-                context, R.style.DialogTheme, onDateSetListener,
-                binding.chosenDate.get(
-                    Calendar.YEAR),
-                binding.chosenDate.get(Calendar.MONTH),
-                binding.chosenDate.get(Calendar.DAY_OF_MONTH)
-            )
-            datePickerDialog.window?.setBackgroundDrawable(ColorDrawable(Color.WHITE))
-            datePickerDialog.show()
+            // val datePickerDialog = DatePickerDialog(
+            //     context, R.style.DialogTheme, onDateSetListener,
+            //     binding.chosenDate.get(
+            //         Calendar.YEAR),
+            //     binding.chosenDate.get(Calendar.MONTH),
+            //     binding.chosenDate.get(Calendar.DAY_OF_MONTH)
+            // )
+            // datePickerDialog.window?.setBackgroundDrawable(ColorDrawable(Color.WHITE))
+            // datePickerDialog.show()
+            val dialogFragment = SelectDateFragment(context,
+                    binding.chosenDate
+            ) { year: Int, month: Int, day: Int ->
+                onDateChose(year, month - 1, day)
+            }
+            dialogFragment.show(childFragmentManager, "DatePicker")
         }
     }
 

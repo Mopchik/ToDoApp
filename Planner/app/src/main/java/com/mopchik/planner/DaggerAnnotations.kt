@@ -26,3 +26,9 @@ enum class TypeOfAction{
 }
 @Qualifier
 annotation class ActionParameterType(val tOfA:TypeOfAction)
+
+enum class FragmentManagerOwner{
+    ADD_CHANGE_FRAGMENT
+}
+@Qualifier
+annotation class FragmentManagerClass(val fm: FragmentManagerOwner)
